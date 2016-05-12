@@ -6,6 +6,8 @@ import (
 	"github.com/pkg/errors"
 	"github.com/random-j-farmer/eveapi/internal/url"
 	"github.com/random-j-farmer/eveapi/internal/xml/charid"
+	"github.com/random-j-farmer/eveapi/internal/xml/charinfo"
+	"github.com/random-j-farmer/eveapi/types"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -36,17 +38,30 @@ func NewClient(cfg ClientConfig) *Client {
 	return &c
 }
 
-// Lookup performs a character id lookup for the given names.
-func (c *Client) Lookup(names []string) (map[string]uint64, error) {
+// CharacterID performs a character id lookup for the given names.
+func (c *Client) CharacterID(names []string) (map[string]uint64, error) {
 
 	url := url.CharacterID(names)
 
 	body, err := c.getBody(url)
 	if err != nil {
-		return nil, errors.Wrap(err, "Lookup")
+		return nil, errors.Wrap(err, "getBody")
 	}
 
 	return charid.ParseBody(names, body)
+}
+
+// CharacterInfo gives the character info for a character id.
+func (c *Client) CharacterInfo(id uint64) (*types.CharacterInfo, error) {
+
+	url := url.CharacterInfo(id)
+
+	body, err := c.getBody(url)
+	if err != nil {
+		return nil, errors.Wrap(nil, "getBody")
+	}
+
+	return charinfo.ParseBody(id, body)
 }
 
 // Get a EVE Online XMLAPI URL

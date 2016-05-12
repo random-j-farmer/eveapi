@@ -2,6 +2,7 @@ package eveapi
 
 import (
 	"bytes"
+	"github.com/pkg/errors"
 	"github.com/random-j-farmer/eveapi/internal/url"
 	"io/ioutil"
 	"net/http"
@@ -46,10 +47,10 @@ func TestNewClient(t *testing.T) {
 	}
 }
 
-func TestClient_Lookup(t *testing.T) {
+func TestClient_CharacterID(t *testing.T) {
 	c := NewClient(*new(ClientConfig))
 
-	cis, err := c.Lookup([]string{"Random J Farmer"})
+	cis, err := c.CharacterID([]string{"Random J Farmer"})
 	if err != nil {
 		t.Errorf("ParseBody: %#v", err)
 	}
@@ -59,4 +60,18 @@ func TestClient_Lookup(t *testing.T) {
 	if !reflect.DeepEqual(exp, cis) {
 		t.Errorf("TestLookup: expexted=%#v, actual=%#v", exp, cis)
 	}
+}
+
+func TestClient_CharacterInfo(t *testing.T) {
+	c := NewClient(*new(ClientConfig))
+
+	info, err := c.CharacterInfo(95538430)
+	if err != nil {
+		t.Errorf("ParseBody: %v cause %v", err, errors.Cause(err))
+	}
+
+	if info.CharacterName != "Random J Farmer" {
+		t.Errorf("TestParseBody: expected=%#v, actual=%#v", "Random J Farmer", info.CharacterName)
+	}
+
 }

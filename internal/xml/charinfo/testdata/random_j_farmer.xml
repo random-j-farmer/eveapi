@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<eveapi version="2">
+    <currentTime>2016-05-12 19:10:30</currentTime>
+    <result>
+        <characterID>95538430</characterID>
+        <characterName>Random J Farmer</characterName>
+        <race>Caldari</race>
+        <bloodlineID>2</bloodlineID>
+        <bloodline>Civire</bloodline>
+        <ancestryID>7</ancestryID>
+        <ancestry>Entrepreneurs</ancestry>
+        <corporationID>98199279</corporationID>
+        <corporation>Stay Frosty.</corporation>
+        <corporationDate>2016-05-11 20:15:00</corporationDate>
+        <allianceID>99004295</allianceID>
+        <alliance>A Band Apart.</alliance>
+        <allianceDate>2014-03-24 21:23:00</allianceDate>
+        <securityStatus>-3.27550348523941</securityStatus>
+        <rowset columns="recordID,corporationID,corporationName,startDate" key="recordID" name="employmentHistory">
+            <row corporationID="98199279" corporationName="Stay Frosty." recordID="41949320" startDate="2016-05-11 20:15:00" />
+            <row corporationID="98388312" corporationName="Pandemic Horde Inc." recordID="41547217" startDate="2016-04-02 19:53:00" />
+            <row corporationID="1000009" corporationName="Caldari Provisions" recordID="41547132" startDate="2016-04-02 19:47:00" />
+            <row corporationID="98199279" corporationName="Stay Frosty." recordID="40673610" startDate="2016-01-04 16:55:00" />
+            <row corporationID="1000009" corporationName="Caldari Provisions" recordID="40663706" startDate="2016-01-03 20:40:00" />
+            <row corporationID="98378564" corporationName="Grmble R Us" recordID="40641846" startDate="2016-01-02 06:27:00" />
+            <row corporationID="1000009" corporationName="Caldari Provisions" recordID="40300264" startDate="2015-12-05 17:48:00" />
+            <row corporationID="98388312" corporationName="Pandemic Horde Inc." recordID="38875637" startDate="2015-07-29 09:02:00" />
+            <row corporationID="98378564" corporationName="Grmble R Us" recordID="38809656" startDate="2015-07-24 09:24:00" />
+            <row corporationID="98370861" corporationName="KarmaFleet" recordID="38745711" startDate="2015-07-18 19:12:00" />
+            <row corporationID="98388312" corporationName="Pandemic Horde Inc." recordID="37871598" startDate="2015-04-21 16:17:00" />
+            <row corporationID="1000045" corporationName="Science and Trade Institute" recordID="37869023" startDate="2015-04-21 08:30:00" />
+        </rowset>
+    </result>
+    <cachedUntil>2016-05-12 19:22:10</cachedUntil>
+</eveapi>

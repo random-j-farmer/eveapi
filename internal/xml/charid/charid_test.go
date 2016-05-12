@@ -7,7 +7,7 @@ import (
 )
 
 func TestParseBody(t *testing.T) {
-	b, err := ioutil.ReadFile("testdata/character_id_random_j_farmer.xml")
+	b, err := ioutil.ReadFile("testdata/random_j_farmer.xml")
 	if err != nil {
 		t.Errorf("ReadFile: %#v", err)
 	}

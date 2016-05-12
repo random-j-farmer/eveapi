@@ -15,6 +15,11 @@ func CharacterID(names []string) URL {
 	return URL(fmt.Sprintf("%s?names=%s", urlHelper("eve/CharacterID"), quoteAndJoin(names, ",")))
 }
 
+// CharacterInfo is the eve/CharacterInfo endpoint
+func CharacterInfo(id uint64) URL {
+	return URL(fmt.Sprintf("%s?characterID=%d", urlHelper("eve/CharacterInfo"), id))
+}
+
 const xmlApiUrl = "https://api.eveonline.com"
 
 func urlHelper(s string) string {
