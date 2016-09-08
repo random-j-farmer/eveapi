@@ -20,10 +20,20 @@ func CharacterInfo(id uint64) URL {
 	return URL(fmt.Sprintf("%s?characterID=%d", urlHelper("eve/CharacterInfo"), id))
 }
 
+// MapKills is the map/kills endpoint
+func MapKills() URL {
+	return URL(fmt.Sprintf("%s", urlHelper("map/kills")))
+}
+
 const xmlApiUrl = "https://api.eveonline.com"
+const crestUrl = "https://crest-tq.eveonline.com"
 
 func urlHelper(s string) string {
 	return fmt.Sprintf("%s/%s.xml.aspx", xmlApiUrl, s)
+}
+
+func crestHelper(s string) string {
+	return fmt.Sprintf("%s/%s", crestUrl, s)
 }
 
 func quoteAndJoin(xs []string, sep string) string {

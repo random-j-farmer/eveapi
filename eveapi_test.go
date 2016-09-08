@@ -2,12 +2,13 @@ package eveapi
 
 import (
 	"bytes"
-	"github.com/pkg/errors"
-	"github.com/random-j-farmer/eveapi/internal/url"
 	"io/ioutil"
 	"net/http"
 	"reflect"
 	"testing"
+
+	"github.com/pkg/errors"
+	"github.com/random-j-farmer/eveapi/internal/url"
 )
 
 // testGetter is a getter with a fixed result
@@ -75,3 +76,17 @@ func TestClient_CharacterInfo(t *testing.T) {
 	}
 
 }
+
+/*
+
+this one takes a 15 seconds ... too long
+
+func TestClient_MapKills(t *testing.T) {
+	c := NewClient(*new(ClientConfig))
+
+	_, err := c.MapKills()
+	if err != nil {
+		t.Errorf("MapKills: %#v cause %#v", err, errors.Cause(err))
+	}
+}
+*/

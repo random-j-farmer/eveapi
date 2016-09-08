@@ -3,30 +3,36 @@ package eveapi
 
 import (
 	"fmt"
+	"io/ioutil"
+	"log"
+	"net/http"
+
 	"github.com/pkg/errors"
 	"github.com/random-j-farmer/eveapi/internal/url"
 	"github.com/random-j-farmer/eveapi/internal/xml/charid"
 	"github.com/random-j-farmer/eveapi/internal/xml/charinfo"
+	"github.com/random-j-farmer/eveapi/internal/xml/mapkills"
 	"github.com/random-j-farmer/eveapi/types"
-	"io/ioutil"
-	"log"
-	"net/http"
 )
 
+// Getter gets an URL
 type Getter interface {
 	Get(url string) (resp *http.Response, err error)
 }
 
+// ClientConfig is getter & looger
 type ClientConfig struct {
 	Getter Getter
 	Log    *log.Logger
 }
 
+// Client is the same, but unexported
 type Client struct {
 	getter Getter
 	log    *log.Logger
 }
 
+// NewClient returns a client for the config
 func NewClient(cfg ClientConfig) *Client {
 	c := Client{getter: cfg.Getter, log: cfg.Log}
 	if c.getter == nil {
@@ -62,6 +68,18 @@ func (c *Client) CharacterInfo(id uint64) (*types.CharacterInfo, error) {
 	}
 
 	return charinfo.ParseBody(id, body)
+}
+
+// MapKills queries the map/kills endpoint
+func (c *Client) MapKills() (*types.MapKills, error) {
+	url := url.MapKills()
+
+	body, err := c.getBody(url)
+	if err != nil {
+		return nil, errors.Wrap(nil, "getBody")
+	}
+
+	return mapkills.ParseBody(body)
 }
 
 // Get a EVE Online XMLAPI URL
