@@ -1,9 +1,9 @@
 package charinfo
 
 import (
-	"testing"
-	"io/ioutil"
 	"github.com/pkg/errors"
+	"io/ioutil"
+	"testing"
 )
 
 func TestParseBody(t *testing.T) {

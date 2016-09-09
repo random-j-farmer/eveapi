@@ -19,3 +19,19 @@ func TestCharacterInfo(t *testing.T) {
 		t.Errorf("TestCharacterID: expected=%#v actual=%#v", exp, u)
 	}
 }
+
+func TestMapKills(t *testing.T) {
+	u := MapKills()
+	exp := URL(xmlApiUrl + "/map/kills.xml.aspx")
+	if u != exp {
+		t.Errorf("TestMapKills: exp=%#v actual=%#v", exp, u)
+	}
+}
+
+func TestMapJumps(t *testing.T) {
+	u := MapJumps()
+	exp := URL(xmlApiUrl + "/map/jumps.xml.aspx")
+	if u != exp {
+		t.Errorf("TestMapJumps: exp=%#v actual=%#v", exp, u)
+	}
+}

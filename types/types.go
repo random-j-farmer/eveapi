@@ -49,6 +49,35 @@ type SolarSystemKills struct {
 	PodKills      int    `xml:"podKills,attr"`
 }
 
+// MapJumps is the data from the /map/jumps endpoint
+type MapJumps struct {
+	DataTime    EveDatetime        `xml:"result>dataTime"`
+	Jumps       []SolarSystemJumps `xml:"result>rowset>row"`
+	CurrentTime EveDatetime        `xml:"currentTime"`
+	CachedUntil EveDatetime        `xml:"cachedUntil"`
+}
+
+// SolarSystemJumps is a row from the /map/jumps endpoint
+type SolarSystemJumps struct {
+	SolarSystemID uint64 `xml:"solarSystemID,attr"`
+	ShipJumps     int    `xml:"shipJumps,attr"`
+}
+
+// SolarSystem is solar system data from the SDE
+type SolarSystem struct {
+	SolarSystemName string
+	Security        float32
+	RegionID        uint64
+}
+
+// Gate is a gate from the SDE
+type Gate struct {
+	GateName string
+	X        float32
+	Y        float32
+	Z        float32
+}
+
 // ParseTime parses an Eve Timestamp.
 // EVE Times are always given in UTC
 func ParseTime(dt EveDatetime) time.Time {

@@ -25,6 +25,11 @@ func MapKills() URL {
 	return URL(fmt.Sprintf("%s", urlHelper("map/kills")))
 }
 
+// MapJumps is the map/jumps endpoint
+func MapJumps() URL {
+	return URL(fmt.Sprintf("%s", urlHelper("map/jumps")))
+}
+
 const xmlApiUrl = "https://api.eveonline.com"
 const crestUrl = "https://crest-tq.eveonline.com"
 

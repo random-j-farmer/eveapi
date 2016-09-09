@@ -11,6 +11,7 @@ import (
 	"github.com/random-j-farmer/eveapi/internal/url"
 	"github.com/random-j-farmer/eveapi/internal/xml/charid"
 	"github.com/random-j-farmer/eveapi/internal/xml/charinfo"
+	"github.com/random-j-farmer/eveapi/internal/xml/mapjumps"
 	"github.com/random-j-farmer/eveapi/internal/xml/mapkills"
 	"github.com/random-j-farmer/eveapi/types"
 )
@@ -80,6 +81,18 @@ func (c *Client) MapKills() (*types.MapKills, error) {
 	}
 
 	return mapkills.ParseBody(body)
+}
+
+// MapJumps queries the map/jumps endpoint
+func (c *Client) MapJumps() (*types.MapJumps, error) {
+	url := url.MapJumps()
+
+	body, err := c.getBody(url)
+	if err != nil {
+		return nil, errors.Wrap(nil, "getBody")
+	}
+
+	return mapjumps.ParseBody(body)
 }
 
 // Get a EVE Online XMLAPI URL

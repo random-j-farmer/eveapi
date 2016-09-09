@@ -3,8 +3,8 @@ package charinfo
 
 import (
 	"encoding/xml"
-	"github.com/pkg/errors"
 	"fmt"
+	"github.com/pkg/errors"
 	"github.com/random-j-farmer/eveapi/types"
 )
 
@@ -17,4 +17,3 @@ func ParseBody(id uint64, body []byte) (*types.CharacterInfo, error) {
 
 	return &charinfo, nil
 }
-
