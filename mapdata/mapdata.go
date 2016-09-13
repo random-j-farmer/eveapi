@@ -16,6 +16,11 @@ func RegionBySolarSystem(solarSystemID uint64) (regionID uint64, regionName stri
 	return
 }
 
+// RegionNameByID returns the name of the region
+func RegionNameByID(regionID uint64) string {
+	return regionNameByID[regionID]
+}
+
 // GatesBySolarSystemID gives a solar systems gates
 func GatesBySolarSystemID(solarSystemID uint64) []types.Gate {
 	return gatesBySolarSystemID[solarSystemID]
